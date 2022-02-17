@@ -1,17 +1,18 @@
 import React from "react";
 import PropTypes from "prop-types";
 
-const Message = ({ msg }) => {
+const Message = ({ msg ,messageClose}) => {
   return (
-    <div className="alert alert-info alert-dismissible fade show" role="alert">
+    <div className="alert alert-info fade show" role="alert">
       {msg}
       <button
         type="button"
         className="close"
-        data-dismiss="alert"
-        aria-label="Close"
+        // data-dismiss="alert"
+        // aria-label="Close"
+        onClick={messageClose}
       >
-        <span aria-hidden="true">&times;</span>
+        <span aria-hidden="true">x</span>
       </button>
     </div>
   );
