@@ -29,6 +29,7 @@ function SingleModel({model_id}) {
      
     };
     const getModel=async()=>{
+      if(model_id===null) return 
           await axios
           .get(backendUrl + "singleModel/" + model_id, {
             responseType: "blob",
