@@ -54,9 +54,9 @@ function SingleModel({model_id}) {
       modelName!==null?<CircularProgress/>:""
       ) : (
         <Canvas camera={{ fov: 35, zoom : 5, near: 1, far: 1000 }}>
-          <OrbitControls enableZoom={false} />
+          <OrbitControls />
           <ambientLight intensity={0.5} />
-          <directionalLight position={[-2, 5, 2]} intensity={1} />
+          <directionalLight position={[-1, 5, 2]} intensity={1} />
           <Suspense fallback={null}>
             {/* <Iphone/> */}
             <Model />

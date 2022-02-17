@@ -47,7 +47,7 @@ function Preview({file}) {
        <a>No file selected</a>
       ) : (
         <Canvas camera={{ fov: 35, zoom: 5, near: 1, far: 1000 }}>
-          <OrbitControls enableZoom={false} />
+          <OrbitControls  />
           <ambientLight intensity={0.5} />
           <directionalLight position={[-2, 5, 2]} intensity={1} />
           <Suspense fallback={null}>
