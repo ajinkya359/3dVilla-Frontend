@@ -2,3 +2,19 @@
   padding: 0;
   margin: 0;
 }
+
+.App{
+  /* height: 100vh; */
+  /* background-color: green; */
+    /* display: flex;
+    flex-direction: column;
+    justify-content: space-between; */
+}
+
+.app_body{
+  margin-top: 1vh;
+  display: flex;
+  height: 86vh;
+  /* background-color: blue; */
+  justify-content: space-between;
+}

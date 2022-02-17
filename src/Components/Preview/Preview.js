@@ -10,16 +10,10 @@ import CircularProgress from '@mui/material/CircularProgress';
 
 
 
-function SingleModel({model_id}) {
+function Preview({file}) {
     const [modelData, setmodelData] = useState(null)
     // console.log("single_modle",model_id)
-    let modelName="unknown"
-    if(model_id.includes('--name--')===true){
-      const index=model_id.search('name--')
-      // console.log(index)
-      // console.log(model_id.substring(index + 6, model_id.length - 4));
-      modelName = model_id.substring(index + 6, model_id.length - 4);
-    }
+
     const Model = () => {
       //   console.log(number);
       
@@ -28,30 +22,29 @@ function SingleModel({model_id}) {
       
      
     };
-    const getModel=async()=>{
-          await axios
-          .get(backendUrl + "singleModel/" + model_id, {
-            responseType: "blob",
-            timeout: 30000,
-          })
-          .then(d=>{
-            
-              setmodelData(URL.createObjectURL(d.data))
-              console.log("blob",d.data)
-          })
-          .catch((error) => console.log(error));
-    }
+    // const getModel=async()=>{
+    //       await axios
+    //       .get(backendUrl + "singleModel/" + model_id, {
+    //         responseType: "blob",
+    //         timeout: 30000,
+    //       })
+    //       .then(d=>{
+    //           setmodelData(URL.createObjectURL(d.data))
+    //           // console.log(d.data)
+    //       })
+    //       .catch((error) => console.log(error));
+    // }
     useEffect(()=>{
-      setmodelData(null)
-        getModel()
-        // console.log(modelData)
-    },[model_id])
+    //  if(file!==null) 
+      console.log(file)
+      setmodelData(file);
+    },[file])
   return (
     <div className='singleModel'>
-      <h3>{modelName}</h3>
+      <h3>Preview</h3>
       {modelData === null ? (
         // <div className='error'>Hello</div>
-       <CircularProgress/>
+       <a>No file selected</a>
       ) : (
         <Canvas camera={{ fov: 35, zoom: 5, near: 1, far: 1000 }}>
           <OrbitControls enableZoom={false} />
@@ -68,4 +61,4 @@ function SingleModel({model_id}) {
   );
 }
 
-export default SingleModel
+export default Preview
