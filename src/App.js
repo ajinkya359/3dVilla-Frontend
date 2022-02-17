@@ -11,7 +11,7 @@ import UploadFile2 from './Components/UploadFile/UploadFile2';
 function App() {
   const [upload,setUpload]=useState(false)
   // const [modal setMo]
-  const [model, setModel] = useState("1645069939512--name--P8.glb");
+  const [model, setModel] = useState(null);
   const [file,setFile]=useState(null)
   
   return (

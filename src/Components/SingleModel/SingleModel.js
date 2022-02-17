@@ -13,8 +13,8 @@ import CircularProgress from '@mui/material/CircularProgress';
 function SingleModel({model_id}) {
     const [modelData, setmodelData] = useState(null)
     // console.log("single_modle",model_id)
-    let modelName="unknown"
-    if(model_id.includes('--name--')===true){
+    let modelName=null
+    if(model_id!==null&&model_id.includes('--name--')===true){
       const index=model_id.search('name--')
       // console.log(index)
       // console.log(model_id.substring(index + 6, model_id.length - 4));
@@ -48,12 +48,11 @@ function SingleModel({model_id}) {
     },[model_id])
   return (
     <div className='singleModel'>
-      <h3>{modelName}</h3>
+      <h3>{modelName===null?"No model Selected":modelName}</h3>
       {modelData === null ? (
-        // <div className='error'>Hello</div>
-       <CircularProgress/>
+      modelName!==null?<CircularProgress/>:""
       ) : (
-        <Canvas camera={{ fov: 35, zoom: 5, near: 1, far: 1000 }}>
+        <Canvas camera={{ fov: 35, zoom : 5, near: 1, far: 1000 }}>
           <OrbitControls enableZoom={false} />
           <ambientLight intensity={0.5} />
           <directionalLight position={[-2, 5, 2]} intensity={1} />

@@ -34,7 +34,7 @@ function ListModel({setModel}) {
       setModel(temp)
     }
   return (
-    <div className='list_of_models'>{models.map(m=><h3 key={m} data-key={m} onClick={handleNameClick}>{model_name(m)}</h3>)}</div>
+    <div className='list_of_models'>{models.length!==0?models.map(m=><h3 key={m} data-key={m} onClick={handleNameClick}>{model_name(m)}</h3>):<h1>No models</h1>}</div>
   )
 }
 
