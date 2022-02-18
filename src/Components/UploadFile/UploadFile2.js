@@ -13,6 +13,7 @@ const UploadFile2 = ({setFileFromParent}) => {
   const [uploadPercentage, setUploadPercentage] = useState(0);
 
   const onChange = (e) => {
+    console.log(e.target.files[0]);
     if (e.target.files[0].type !== "model/gltf-binary"){
       setMessage("Select correct type of file.")
       return;
