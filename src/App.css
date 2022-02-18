@@ -14,7 +14,7 @@
 .app_body{
   margin-top: 1vh;
   display: flex;
-  height: 86vh;
+  height:88vh;
   /* background-color: blue; */
   justify-content: space-between;
 }

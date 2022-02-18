@@ -41,10 +41,10 @@ function Preview({file}) {
     },[file])
   return (
     <div className='singleModel'>
-      <h3>Preview</h3>
+      {file?<h3>Preview</h3>:<h3>No file selected</h3>}
       {modelData === null ? (
         // <div className='error'>Hello</div>
-       <a>No file selected</a>
+       <a></a>
       ) : (
         <Canvas camera={{ fov: 35, zoom: 5, near: 1, far: 1000 }}>
           <OrbitControls  />

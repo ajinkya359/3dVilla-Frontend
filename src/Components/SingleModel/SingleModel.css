@@ -1,5 +1,10 @@
 .singleModel{
     /* background-color: black; */
+    display: flex;
+    flex-direction: column;
     height: 100%; 
-    width: 50vw; 
+    width: 70vw; 
+}
+h3{
+    margin: auto;
 }

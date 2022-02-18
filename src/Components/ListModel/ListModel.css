@@ -1,8 +1,0 @@
-.list_of_models{
-  display: flex;
-  flex-direction: column;
-  /* background-color: blue; */
-  /* height: 99%; */
-  width: 50vw;
-  overflow-y: scroll;
-}

@@ -2,7 +2,7 @@ import axios from 'axios'
 import React, { useEffect, useState } from 'react'
 import { backendUrl } from '../../backend'
 // import SingleModel from '../SingleModel/SingleModel'
-import './ListModel.css'
+import './ListModel.scss'
 import CircularProgress from '@mui/material/CircularProgress';
 
 
@@ -44,11 +44,15 @@ function ListModel({setModel}) {
       ) : (
         <div>
           {models.length !== 0 ? (
-            models.map((m) => (
-              <h3 key={m} data-key={m} onClick={handleNameClick}>
-                {model_name(m)}
-              </h3>
-            ))
+            <main>
+              <ol className="gradient-list">
+                {models.map((m) => (
+                  <li key={m} data-key={m} onClick={handleNameClick}>
+                    {model_name(m)}
+                  </li>
+                ))}
+              </ol>
+            </main>
           ) : (
             <h1>No models</h1>
           )}

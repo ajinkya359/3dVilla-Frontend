@@ -6,19 +6,23 @@ import { backendUrl } from "../../backend";
 
 
 const UploadFile2 = ({setFileFromParent}) => {
-  const [file, setFile] = useState("");
+  const [file, setFile] = useState(null);
   const [filename, setFilename] = useState("Choose File");
   const [uploadedFile, setUploadedFile] = useState({});
   const [message, setMessage] = useState("");
   const [uploadPercentage, setUploadPercentage] = useState(0);
 
   const onChange = (e) => {
+    if (e.target.files[0].type !== "model/gltf-binary"){
+      setMessage("Select correct type of file.")
+      return;
+    }
     setFile(e.target.files[0]);
 
     setFilename(e.target.files[0].name);
     // const blob = new Blob(e.target.files[0], { type: "model/gltf-binary" });
     // console.log(blob)
-    console.log("file selected", e.target.files[0]);
+    // console.log("file selected", e.target.files[0]);
     setFileFromParent(URL.createObjectURL(e.target.files[0]));
   };
 
@@ -26,7 +30,17 @@ const UploadFile2 = ({setFileFromParent}) => {
     e.preventDefault();
     const formData = new FormData();
     formData.append("model", file);
+    console.log(file)
+      if (file === null) {
+        setMessage("Select a file.");
+        return;
+      }
+    // if (file.type !== "model/gltf-binary"){
+    //   setMessage("Select on glb models.")
+    //   return;
+    // }
 
+    
     try {
       const res = await axios.post(backendUrl + "upload", formData, {
         headers: {
