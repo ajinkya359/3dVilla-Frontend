@@ -88,6 +88,7 @@ const UploadFile2 = ({setFileFromParent}) => {
               className="custom-file-input"
               id="customFile"
               onChange={onChange}
+              accept=".glb"
             />
             <label className="custom-file-label" htmlFor="customFile">
               {filename}
